@@ -173,28 +173,28 @@ void SLTU(  RegisterFile theRegisterFile,
 // Add Immediate Word
 //
 void ADDI(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
+            uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
 // Add Immediate Unsigned Word
 //
 void ADDIU(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
+            uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
 // Set on Less Than Immediate
 //
 void SLTI(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
+            uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
 // Set on Less Than Immediate Unsigned
 //
 void SLTIU(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
+            uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 
