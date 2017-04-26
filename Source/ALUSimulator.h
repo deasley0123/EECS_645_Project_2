@@ -31,21 +31,14 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
 
 
 //
-// Shift Word Left Logical
+// Shift Word Left Logical, OpCode 0x00, FunctionCode 0x00
 //
 void SLL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
 //
-// Shift Word Right Logical
-//
-void SRL(   RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
-            uint32_t ShiftAmt);
-                
-//
-// Shift Word Right Logical
+// Shift Word Right Logical, OpCode 0x00, FunctionCode 0x
 //
 void SRL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
@@ -55,13 +48,6 @@ void SRL(   RegisterFile theRegisterFile,
 // Shift Word Right Arithmetic
 //
 void SRA(   RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd,
-            uint32_t ShiftAmt);
-
-//
-// Shift Word Right Logical
-//
-void SRL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
