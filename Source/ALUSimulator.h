@@ -38,146 +38,146 @@ void SLL(   RegisterFile theRegisterFile,
             uint32_t ShiftAmt);
 
 //
-// Shift Word Right Logical, OpCode 0x00, FunctionCode 0x
+// Shift Word Right Logical, OpCode 0x00, FunctionCode 0x02
 //
 void SRL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
 //
-// Shift Word Right Arithmetic
+// Shift Word Right Arithmetic, OpCode 0x00, FunctionCode 0x03
 //
 void SRA(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
 //
-// Shift Word Left Logical Variable
+// Shift Word Left Logical Variable, OpCode 0x00, FunctionCode 0x04
 //
 void SLLV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
 //
-// Shift Word Right Logical Variable
+// Shift Word Right Logical Variable, OpCode 0x00, FunctionCode 0x06
 //
 void SRLV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt);
 
 //
-// Move From HI
+// Move From HI, OpCode 0x00, FunctionCode 0x10
 //
 void MFHI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Move From LO
+// Move From LO, OpCode 0x00, FunctionCode 0x12
 //
 void MFLO(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Multiply Word
+// Multiply Word, OpCode 0x00, FunctionCode 0x18
 //
 void MULT(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Mulitply Unsigned Word
+// Mulitply Unsigned Word, OpCode 0x00, FunctionCode 0x19
 //
 void MULTU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Divide Word
+// Divide Word, OpCode 0x00, FunctionCode 0x1A
 //
 void DIV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Divide Unsigned Word
+// Divide Unsigned Word, OpCode 0x00, FunctionCode 0x1B
 //
 void DIVU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Add Word
+// Add Word, OpCode 0x00, FunctionCode 0x20
 //
 void ADD(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Add Unsigned Word
+// Add Unsigned Word, OpCode 0x00, FunctionCode 0x21
 //
 void ADDU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Subtract Word
+// Subtract Word, OpCode 0x00, FunctionCode 0x22
 //
 void SUB(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Subtract Unsigned Word
+// Subtract Unsigned Word, OpCode 0x00, FunctionCode 0x23
 //
 void SUBU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Boolean "and" operation
+// Boolean "and" operation, OpCode 0x00, FunctionCode 0x24
 //
 void AND(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Boolean "or" operation
+// Boolean "or" operation, OpCode 0x00, FunctionCode 0x25
 //
 void OR(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Boolean "xor" operation
+// Boolean "xor" operation, OpCode 0x00, FunctionCode 0x26
 //
 void XOR(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Set on Less Than
+// Set on Less Than, OpCode 0x00, FunctionCode 0x2A
 //
 void SLT(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Set on Less Than Unsigned
+// Set on Less Than Unsigned, OpCode 0x00, FunctionCode 0x2B
 //
 void SLTU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd);
 
 //
-// Add Immediate Word
+// Add Immediate Word, OpCode 0x08, FunctionCode (don't care)
 //
 void ADDI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
-// Add Immediate Unsigned Word
+// Add Immediate Unsigned Word, OpCode 0x09, FunctionCode (don't care)
 //
 void ADDIU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
-// Set on Less Than Immediate
+// Set on Less Than Immediate, OpCode 0x0A, FunctionCode (don't care)
 //
 void SLTI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue);
 
 //
-// Set on Less Than Immediate Unsigned
+// Set on Less Than Immediate Unsigned, OpCode 0x0B, FunctionCode (don't care)
 //
 void SLTIU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
