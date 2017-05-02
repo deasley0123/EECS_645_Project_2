@@ -21,7 +21,7 @@
 #include "ALUSimulator.h"
 
 //
-// Simualte all ALU functions (all uint32_t values use bottom bits)
+// Simulate all ALU functions (all uint32_t values use bottom bits)
 //
 extern void ALUSimulator(   RegisterFile theRegisterFile,
                             uint32_t OpCode, // 6 bits
@@ -30,7 +30,7 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
                             uint32_t FunctionCode,
                             uint32_t ImmediateValue,
                             uint32_t* Status ){ //Carry/borrow (0x4), negative (0x2), zero (0x1)
-    
+
     switch(OpCode){
         case 0x00 :
             switch(FunctionCode){
@@ -76,7 +76,7 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
                 case 0x2B :
                     SLTU(theRegisterFile, Rs, Rt, Rd);
                     break;
-                
+
                 default :
                     printf("Unknown FunctionCode selected!");
             }
@@ -93,10 +93,10 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
         case 0x0B :
             SLTIU(theRegisterFile, Rs, Rd, ImmediateValue);
             break;
-        
+
         default :
             printf("Unknown OpCode selected!");
-        
+
     }
 }
 
@@ -106,9 +106,8 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
 void SLL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
+              uint32_t RdVal = Rt << ShiftAmt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -117,9 +116,9 @@ void SLL(   RegisterFile theRegisterFile,
 void SRL(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
+            uint32_t RdVal = Rt >> ShiftAmt;
+            RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
+
 }
 
 //
@@ -128,9 +127,9 @@ void SRL(   RegisterFile theRegisterFile,
 void SRA(   RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
+              uint32_t RdVal = (signed)Rt >> ShiftAmt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
+
 }
 
 //
@@ -139,9 +138,9 @@ void SRA(   RegisterFile theRegisterFile,
 void SLLV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
+              uint32_t RdVal = Rt << Rs;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
+
 }
 
 //
@@ -150,9 +149,9 @@ void SLLV(  RegisterFile theRegisterFile,
 void SRLV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
+              uint32_t RdVal = Rt >> Rs;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
+
 }
 
 //
@@ -160,9 +159,9 @@ void SRLV(  RegisterFile theRegisterFile,
 //
 void ADD(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+              uint32_t RdVal = Rs + Rt;
+              //TODO: overflow case
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -170,9 +169,9 @@ void ADD(  RegisterFile theRegisterFile,
 //
 void ADDU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+              uint32_t RdVal = Rs + Rt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
+
 }
 
 //
@@ -180,9 +179,10 @@ void ADDU(  RegisterFile theRegisterFile,
 //
 void SUB(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = Rs - Rt;
+              //TODO: overflow case
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -190,9 +190,9 @@ void SUB(  RegisterFile theRegisterFile,
 //
 void SUBU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = Rs - Rt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -200,9 +200,9 @@ void SUBU(  RegisterFile theRegisterFile,
 //
 void AND(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = Rs & Rt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, Rdvalue);
 }
 
 //
@@ -210,9 +210,9 @@ void AND(  RegisterFile theRegisterFile,
 //
 void OR(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = Rs | Rt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -220,9 +220,9 @@ void OR(  RegisterFile theRegisterFile,
 //
 void XOR(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = Rs ^ Rt;
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -230,9 +230,15 @@ void XOR(  RegisterFile theRegisterFile,
 //
 void SLT(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = 0;
+              if(Rs < Rt){
+                  RdVal = 1;
+               }
+               else{
+                  RdVal = 0;
+               }
+               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -240,9 +246,15 @@ void SLT(  RegisterFile theRegisterFile,
 //
 void SLTU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
+
+              uint32_t RdVal = 0;
+              if((unsigned)Rs < (unsigned)Rt){
+                    RdVal = 1;
+              }
+              else{
+                    RdVal = 0;
+              }
+              RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
 
 //
@@ -251,9 +263,10 @@ void SLTU(  RegisterFile theRegisterFile,
 void ADDI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue){
-    
-    
-    
+
+              uint32_t RdVal = Rs + ImmediateValue;
+              //TODO: overflow
+              RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
 }
 
 //
@@ -262,9 +275,9 @@ void ADDI(  RegisterFile theRegisterFile,
 void ADDIU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue){
-    
-    
-    
+
+              uint32_t RdVal = Rs + ImmediateValue;
+              RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
 }
 
 //
@@ -273,9 +286,15 @@ void ADDIU(  RegisterFile theRegisterFile,
 void SLTI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue){
-    
-    
-    
+
+              uint32_t RdVal = 0;
+              if(Rs < ImmediateValue){
+                  RdVal = 1;
+              }
+              else{
+                  RdVal = 0;
+              }
+              RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
 }
 
 //
@@ -284,8 +303,13 @@ void SLTI(  RegisterFile theRegisterFile,
 void SLTIU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rd,
             uint32_t ImmediateValue){
-    
-    
-    
-}
 
+              uint32_t RdVal = 0;
+              if((unsigned)Rs < (unsigned)ImmediateValue){
+                  RdVal = 1;
+              }
+              else{
+                  RdVal = 0;
+              }
+              RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
+}
