@@ -49,24 +49,6 @@ extern void ALUSimulator(   RegisterFile theRegisterFile,
                 case 0x06 :
                     SRLV(theRegisterFile, Rs, Rt, Rd, ShiftAmt);
                     break;
-                case 0x10 :
-                    MFHI(theRegisterFile, Rs, Rt, Rd);
-                    break;
-                case 0x12 :
-                    MFLO(theRegisterFile, Rs, Rt, Rd);
-                    break;
-                case 0x18 :
-                    MULT(theRegisterFile, Rs, Rt, Rd);
-                    break;
-                case 0x19 :
-                    MULTU(theRegisterFile, Rs, Rt, Rd);
-                    break;
-                case 0x1A :
-                    DIV(theRegisterFile, Rs, Rt, Rd);
-                    break;
-                case 0x1B :
-                    DIVU(theRegisterFile, Rs, Rt, Rd);
-                    break;
                 case 0x20 :
                     ADD(theRegisterFile, Rs, Rt, Rd);
                     break;
@@ -168,66 +150,6 @@ void SLLV(  RegisterFile theRegisterFile,
 void SRLV(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd,
             uint32_t ShiftAmt){
-    
-    
-    
-}
-
-//
-// Move From HI, OpCode 0x00, FunctionCode 0x10
-//
-void MFHI(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
-}
-
-//
-// Move From LO, OpCode 0x00, FunctionCode 0x12
-//
-void MFLO(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
-}
-
-//
-// Multiply Word, OpCode 0x00, FunctionCode 0x18
-//
-void MULT(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
-}
-
-//
-// Mulitply Unsigned Word, OpCode 0x00, FunctionCode 0x19
-//
-void MULTU(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
-}
-
-//
-// Divide Word, OpCode 0x00, FunctionCode 0x1A
-//
-void DIV(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
-    
-    
-    
-}
-
-//
-// Divide Unsigned Word, OpCode 0x00, FunctionCode 0x1B
-//
-void DIVU(  RegisterFile theRegisterFile,
-            uint32_t Rs, uint32_t Rt, uint32_t Rd){
     
     
     
