@@ -285,7 +285,6 @@ void ADDI(  RegisterFile theRegisterFile,
 
               uint32_t RdVal = theRegisterFile[Rs] + (int32_t)(int16_t)ImmediateValue;
               //TODO: overflow
-              printf("ADDI %d and %d and %d\n", Rs, Rt, (int32_t)(int16_t)ImmediateValue);
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
 }
