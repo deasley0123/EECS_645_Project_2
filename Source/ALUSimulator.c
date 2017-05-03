@@ -134,7 +134,6 @@ void SRA(   RegisterFile theRegisterFile,
             uint32_t ShiftAmt){
               // printf("%08X\t%08X\n", Rt, 0x10);
               uint32_t RdVal = (signed)theRegisterFile[Rt] >> (unsigned)ShiftAmt;
-              printf("%08X\t=%08X\t>>%08X\n", RdVal, theRegisterFile[Rt], ShiftAmt);
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 
