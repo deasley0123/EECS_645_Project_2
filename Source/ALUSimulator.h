@@ -4,7 +4,8 @@
 //  Updates:
 //
 //      -- initial version
-//
+//      -- Upadated May 1st by David Easley
+//          revisions to reflect requriement changes (5/1/2017)
 //
 //	Description:
 //			This program simulates an ALU that interacts with a provided register file.
