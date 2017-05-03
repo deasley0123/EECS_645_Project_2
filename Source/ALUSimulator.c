@@ -168,7 +168,7 @@ void SRLV(  RegisterFile theRegisterFile,
 //
 void ADD(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-              uint32_t RdVal = theRegisterFile[Rs] + theRegisterFile[Rt];
+              uint32_t RdVal = (signed)((signed)theRegisterFile[Rs] + (signed)theRegisterFile[Rt]);
               //TODO: overflow case
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
@@ -179,7 +179,7 @@ void ADD(  RegisterFile theRegisterFile,
 //
 void ADDU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
-              uint32_t RdVal = theRegisterFile[Rs] + theRegisterFile[Rt];
+              uint32_t RdVal = (unsigned)((unsigned)theRegisterFile[Rs] + (unsigned)theRegisterFile[Rt]);
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 
@@ -191,7 +191,7 @@ void ADDU(  RegisterFile theRegisterFile,
 void SUB(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
 
-              uint32_t RdVal = theRegisterFile[Rs] - theRegisterFile[Rt];
+              uint32_t RdVal = (signed)((signed)theRegisterFile[Rs] - (signed)theRegisterFile[Rt]);
               //TODO: overflow case
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
@@ -203,7 +203,7 @@ void SUB(  RegisterFile theRegisterFile,
 void SUBU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
 
-              uint32_t RdVal = theRegisterFile[Rs] - theRegisterFile[Rt];
+              uint32_t RdVal = (unsigned)((unsigned)theRegisterFile[Rs] - (unsigned)theRegisterFile[Rt]);
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rd, RdVal);
 }
@@ -248,7 +248,7 @@ void SLT(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt, uint32_t Rd){
 
               uint32_t RdVal = 0;
-              if(theRegisterFile[Rs] < theRegisterFile[Rt]){
+              if((signed)theRegisterFile[Rs] < (signed)theRegisterFile[Rt]){
                   RdVal = 1;
                }
                else{
@@ -282,7 +282,7 @@ void ADDI(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt,
             uint32_t ImmediateValue){
 
-              uint32_t RdVal = theRegisterFile[Rs] + (int32_t)(int16_t)ImmediateValue;
+              uint32_t RdVal = (signed)((signed)theRegisterFile[Rs] + (signed)(int32_t)(int16_t)ImmediateValue);
               //TODO: overflow
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
@@ -295,7 +295,7 @@ void ADDIU(  RegisterFile theRegisterFile,
             uint32_t Rs, uint32_t Rt,
             uint32_t ImmediateValue){
 
-              uint32_t RdVal = theRegisterFile[Rs] + (int32_t)(int16_t)ImmediateValue;
+              uint32_t RdVal = (unsigned)((unsigned)theRegisterFile[Rs] + (unsigned)(int32_t)(int16_t)ImmediateValue);
               RegisterFile_Read(theRegisterFile, Rs, &theRegisterFile[Rs], Rt, &theRegisterFile[Rt]);
               RegisterFile_Write(theRegisterFile, 1, Rt, RdVal);
 }
@@ -308,7 +308,7 @@ void SLTI(  RegisterFile theRegisterFile,
             uint32_t ImmediateValue){
 
               uint32_t RdVal = 0;
-              if(theRegisterFile[Rs] < (int32_t)(int16_t)ImmediateValue){
+              if((signed)theRegisterFile[Rs] < (signed)(int32_t)(int16_t)ImmediateValue){
                   RdVal = 1;
               }
               else{
